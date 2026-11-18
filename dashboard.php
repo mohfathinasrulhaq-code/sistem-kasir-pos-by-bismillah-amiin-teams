@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/backend/auth.php';
 require_login();
 $u = current_user();
 ?>
@@ -22,9 +22,9 @@ $u = current_user();
   <p>Peran: <b><?= e($u['role']) ?></b></p>
   <p>(Halaman ini placeholder. Ganti dengan dashboard Anda.)</p>
   <?php if ($u['role'] === 'owner'): ?>
-    <p><a href="tambah_kasir.php">+ Tambah Kasir</a></p>
+    <p><a href="backend/tambah_kasir.php">+ Tambah Kasir</a></p>
   <?php endif; ?>
-  <form method="post" action="logout.php">
+  <form method="post" action="backend/logout.php">
     <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
     <button type="submit">Keluar</button>
   </form>

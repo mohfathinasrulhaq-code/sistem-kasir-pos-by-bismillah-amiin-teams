@@ -19,7 +19,8 @@ function current_user(): ?array
 function require_login(): void
 {
     if (!current_user()) {
-        header('Location: login.php');
+        $loginUrl = file_exists('login.php') ? 'login.php' : '../login.php';
+        header('Location: ' . $loginUrl);
         exit;
     }
 }

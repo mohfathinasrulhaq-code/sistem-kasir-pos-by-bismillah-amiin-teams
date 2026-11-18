@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <label>Kata Sandi (min. 8 karakter)</label><input type="password" name="password" required>
   <label>Ulangi Kata Sandi</label><input type="password" name="password2" required>
   <button type="submit">Simpan Kasir</button>
-  <p><a href="dashboard.php">&larr; Kembali ke dashboard</a></p>
+  <p><a href="../dashboard.php">&larr; Kembali ke dashboard</a></p>
 </form>
 </body>
 </html>
