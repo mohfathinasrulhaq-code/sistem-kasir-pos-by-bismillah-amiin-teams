@@ -6,15 +6,24 @@ Implementasi Frontend Halaman Login untuk **Amanah Store (Sistem Kasir & Stok To
 
 ## 📁 Struktur Berkas Proyek
 
-```
-source-code/
+```text
+sistem-kasir-pos-by-bismillah-amiin-teams/
 ├── assets/
 │   └── images/
 │       └── logo.png         # Logo resmi Amanah Store (gradien squircle + badge petir)
+├── backend/                 # <‑‑ Backend PHP (tanpa framework)
+│   ├── config.php
+│   ├── auth.php
+│   ├── login.php
+│   ├── logout.php
+│   ├── dashboard.php
+│   ├── tambah_kasir.php
+│   └── seed_owner.php
+├── css/style.css            # Styling universal all-device, responsive breakpoints, & ambient glow
+├── script/script.js          # Interaktivitas (toggle password, form state, siap API Backend)
 ├── index.html               # Struktur semantik HTML5, SVG icons, & tipografi Plus Jakarta Sans
-├── style.css                # Styling universal all-device, responsive breakpoints, & ambient glow
-├── script.js                # Interaktivitas (toggle password, form state, siap API Backend)
-└── README.md                # Dokumentasi proyek
+├── README.md                # Dokumentasi proyek (yang sedang Anda baca)
+└── backend/README.md       # Dokumentasi backend (digabung di sini)
 ```
 
 ---
@@ -28,9 +37,36 @@ source-code/
 
 ---
 
-## 🔌 Integrasi Backend
+## 🔌 Integrasi Backend (Frontend)
 
-Endpoint backend siap dihubungkan di berkas `script.js`:
-- Endpoint: `POST /api/auth/login`
-- Parameter dikirim: `{ username, password, remember }`
-- Dukungan respons: CSRF Token & Session User redirect ke Dashboard Kasir.
+Endpoint backend siap dihubungkan di berkas `script/script.js`:
+- **Endpoint**: `POST /api/auth/login`
+- **Parameter**: `{ username, password, remember }`
+- **Dukungan respons**: CSRF Token & Session User redirect ke Dashboard Kasir.
+
+---
+
+# Backend Login Amanah Store (PHP)
+
+PHP polos + PDO, tanpa framework. Cukup PHP 8+ dan MySQL.
+
+## Isi
+
+| File | Fungsi |
+|---|---|
+| `config.php` | Setelan database, sesi, koneksi, token CSRF |
+| `auth.php` | `require_login()` dan `require_role()` untuk melindungi halaman |
+| `login.php` | Form dan proses login |
+| `logout.php` | Keluar (POST + CSRF) |
+| `dashboard.php` | Placeholder, hanya bisa dibuka setelah login |
+| `tambah_kasir.php` | Tambah kasir, khusus owner |
+| `seed_owner.php` | Membuat owner pertama (CLI, sekali pakai) |
+
+## Cara menjalankan
+1. Pasang XAMPP atau Laragon, aktifkan Apache dan MySQL.
+2. Pastikan database `amanah_store` sudah ada (impor `database.sql` dan `data_barang.sql`).
+3. Salin folder ini ke `htdocs` (XAMPP) atau `www` (Laragon).
+4. Buka `config.php`, sesuaikan `DB_USER` dan `DB_PASS`.
+5. Di terminal, dari folder ini: `php seed_owner.php` lalu isi nama, email, sandi.
+6. Buka `http://localhost/amanah-backend/login.php` dan masuk.
+7. Hapus `seed_owner.php` setelah dipakai.
