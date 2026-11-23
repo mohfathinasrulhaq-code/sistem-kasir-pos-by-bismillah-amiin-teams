@@ -1,0 +1,394 @@
+.welcome-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 16px 18px;
+    border: 1px solid var(--border-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-card);
+}
+
+.welcome-date {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.welcome-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+/* 2x2 Stats Grid */
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 104px;
+}
+
+.stat-card-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.stat-card-val {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.stat-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.stat-badge-growth {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.text-danger-warning {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+/* Aksi Cepat Row */
+.section-header-compact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+.section-title-bold {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.section-subtitle-muted {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.quick-action-btn {
+    background-color: #ffffff;
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s;
+}
+
+.quick-action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.quick-action-btn.active-dark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+}
+
+.quick-action-btn.active-dark .action-icon-circle {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.quick-action-btn.active-dark .action-btn-label {
+    color: #ffffff;
+}
+
+.action-icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+}
+
+.action-btn-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.25;
+}
+
+/* Peringatan Stok Menipis */
+.stock-alert-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.stock-alert-item:last-of-type {
+    border-bottom: none;
+}
+
+.stock-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background-color: #f1f2e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-body);
+    flex-shrink: 0;
+}
+
+.stock-item-info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.stock-item-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stock-item-sub {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.stock-item-sub b {
+    color: var(--accent-red);
+    font-weight: 800;
+}
+
+.see-all-link {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-light);
+}
+
+.see-all-link:hover {
+    color: var(--primary);
+}
+
+/* Grafik Penjualan */
+.chart-container {
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 150px;
+    padding-bottom: 24px;
+    position: relative;
+}
+
+.chart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44px;
+    position: relative;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.chart-bar {
+    width: 100%;
+    border-radius: 6px;
+    background-color: #e2ea78;
+    transition: height 0.3s;
+}
+
+.chart-bar.tall-dark {
+    background-color: var(--primary);
+    position: relative;
+}
+
+.chart-bar.dashed {
+    background-color: #f1f2e0;
+    border: 1.5px dashed #bcc0a0;
+}
+
+.chart-tooltip {
+    position: absolute;
+    top: -24px;
+    background-color: var(--text-main);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.chart-label {
+    position: absolute;
+    bottom: -22px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.chart-col.active .chart-label {
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+/* Transaksi Terakhir */
+.trx-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fefee8;
+    border: 1px solid #f2f2d4;
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.trx-item:last-child {
+    margin-bottom: 0;
+}
+
+.trx-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: #e4eb7b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.trx-icon-box.transfer {
+    background-color: #f6f7eb;
+    color: var(--text-body);
+}
+
+.trx-icon-box.kasbon {
+    background-color: #fce8e6;
+    color: var(--accent-red);
+}
+
+.trx-info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.trx-id-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trx-id {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.trx-time {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.trx-amount {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-align: right;
+}
+
+.trx-amount.red {
+    color: var(--accent-red);
+}
+
+/* Small Mobile Device Optimization (<= 360px) */
+@media (max-width: 360px) {
+    .dashboard-stats-grid {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px;
+        min-height: 96px;
+    }
+
+    .stat-card-val {
+        font-size: 14.5px;
+    }
+
+    .quick-actions-grid {
+        gap: 6px;
+    }
+
+    .quick-action-btn {
+        padding: 10px 4px;
+    }
+
+    .action-btn-label {
+        font-size: 9.5px;
+    }
+
+    .chart-col {
+        width: 36px;
+    }
+}

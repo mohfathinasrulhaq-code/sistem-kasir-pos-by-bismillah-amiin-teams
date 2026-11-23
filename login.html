@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amanah Store - Login</title>
+  <meta http-equiv="refresh" content="0;url=login.php">
+  <script>window.location.replace('login.php');</script>
+  
+  <!-- Font Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Ambient Elements -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <div class="desktop-wrapper">
+    
+    <!-- 1. Top Bar Navigation -->
+    <header class="top-bar">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span class="status-text">Server Online &bull; Siap Transaksi</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span>Aman &amp; Resmi</span>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+      
+      <!-- 2. Brand Section -->
+      <section class="brand-section">
+        <div class="brand-logo-container">
+          <img src="assets/images/amanah-store-3d-nbg.png" alt="Amanah Store Logo" class="brand-logo-img">
+        </div>
+
+        <h1 class="brand-title">Amanah Store</h1>
+
+        <!-- Category Tagline Badge -->
+        <div class="category-badge">
+          <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+            <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/>
+            <path d="M2 7h20"/>
+            <path d="M22 7v3a2 2 0 0 1-2 2 2.4 2.4 0 0 1-1.5-.6 2.4 2.4 0 0 1-3 0 2.4 2.4 0 0 1-3 0 2.4 2.4 0 0 1-3 0 2.4 2.4 0 0 1-3 0 2 2 0 0 1-2-2V7"/>
+          </svg>
+          <span>SISTEM KASIR &amp; STOK TOKO KELONTONG</span>
+        </div>
+
+        <!-- Welcome Headings -->
+        <h2 class="welcome-heading">Selamat Datang Kembali!</h2>
+        <p class="welcome-subtext">
+          Kelola transaksi kasir, stok sembako, dan<br>
+          kasbon pelanggan lebih rapi &amp; berkah.
+        </p>
+      </section>
+
+      <!-- 3. Login Card (Desktop Form) -->
+      <div class="card-login">
+        <form id="loginForm" autocomplete="on">
+          
+          <!-- Field Email / Username -->
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+              </svg>
+              <input 
+                type="text" 
+                id="email" 
+                name="email" 
+                placeholder="contoh: pakhaji@amanahstore.id atau 0" 
+                required
+                autocomplete="username"
+              >
+            </div>
+          </div>
+
+          <!-- Field Password -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password" class="form-label">Kata Sandi</label>
+              <a href="#forgot-password" class="forgot-link" id="forgotLink">Lupa Sandi?</a>
+            </div>
+            <div class="input-wrapper">
+              <svg class="input-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+              </svg>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Masukkan kata sandi kasir" 
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="btn-toggle-password" id="togglePassword" aria-label="Lihat kata sandi">
+                <svg class="icon-eye" id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg class="icon-eye-off hidden" id="eyeOffIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                  <line x1="2" y1="2" x2="22" y2="22"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me & Security Badge Row -->
+          <div class="remember-row">
+            <label class="checkbox-container">
+              <input type="checkbox" id="rememberMe" checked>
+              <span class="custom-checkbox">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              <span class="checkbox-label">Ingat Saya di Perangkat Ini</span>
+            </label>
+            <span class="badge-aman">Aman</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit" id="btnSubmit">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10 17 15 12 10 7"/>
+              <line x1="15" y1="12" x2="3" y2="12"/>
+            </svg>
+            <span>Masuk ke Dashboard</span>
+          </button>
+
+          <!-- Fast Login Divider -->
+          <div class="divider-row">
+            <div class="divider-line"></div>
+            <span class="divider-text">atau masuk lebih cepat</span>
+            <div class="divider-line"></div>
+          </div>
+
+          <!-- Card Bottom Line -->
+          <div class="card-bottom-line"></div>
+        </form>
+      </div>
+
+      <!-- 4. Security Info Banner -->
+      <aside class="security-banner">
+        <svg class="banner-lock-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5ZM12 14a1.5 1.5 0 0 0-1.5 1.5v2a1.5 1.5 0 0 0 3 0v-2A1.5 1.5 0 0 0 12 14Z" clip-rule="evenodd" />
+        </svg>
+        <p class="security-banner-text">
+          Data toko Anda aman terenkripsi &amp; tersimpan otomatis
+        </p>
+      </aside>
+
+      <!-- 5. Footer (Support & Version) -->
+      <footer class="app-footer">
+        <div class="support-row">
+          <svg class="support-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+            <path d="M19 19a2 2 0 0 1-2-2"/>
+            <path d="M15 21a2 2 0 0 1-2-2"/>
+          </svg>
+          <span class="support-text">Butuh bantuan teknis?</span>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="support-link">Hubungi WhatsApp Support</a>
+        </div>
+
+        <div class="version-row">
+          Amanah Store Web v2.4 &bull; Versi Toko Kelontong Modern
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="script/script.js"></script>
+</body>
+</html>

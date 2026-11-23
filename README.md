@@ -1,6 +1,6 @@
-# Frontend Halaman Login - Amanah Store (Universal Responsive)
+# Amanah Store — Sistem Kasir & Stok Toko Kelontong
 
-Implementasi Frontend Halaman Login untuk **Amanah Store (Sistem Kasir & Stok Toko Kelontong)** dengan desain UI/UX yang **100% identik dengan desain acuan** di folder `Assets/Amanah Store - Login.png` dan **sepenuhnya responsif** di seluruh perangkat (Mobile, Tablet, Layar POS, Laptop, dan Desktop 4K).
+Aplikasi web berbasis **PHP + MySQL** (tanpa framework) untuk manajemen kasir, stok barang, dan kasbon pelanggan. Desain UI/UX **responsif penuh** di seluruh perangkat — Smartphone, Tablet, Layar POS, Laptop, hingga Desktop 4K.
 
 ---
 
@@ -8,65 +8,117 @@ Implementasi Frontend Halaman Login untuk **Amanah Store (Sistem Kasir & Stok To
 
 ```text
 sistem-kasir-pos-by-bismillah-amiin-teams/
-├── assets/
+│
+├── 📂 assets/
 │   └── images/
-│       └── logo.png         # Logo resmi Amanah Store (gradien squircle + badge petir)
-├── backend/                 # <‑‑ Backend PHP (tanpa framework)
-│   ├── config.php
-│   ├── auth.php
-│   ├── login.php
-│   ├── logout.php
-│   ├── dashboard.php
-│   ├── tambah_kasir.php
-│   └── seed_owner.php
-├── css/style.css            # Styling universal all-device, responsive breakpoints, & ambient glow
-├── script/script.js          # Interaktivitas (toggle password, form state, siap API Backend)
-├── index.html               # Struktur semantik HTML5, SVG icons, & tipografi Plus Jakarta Sans
-├── README.md                # Dokumentasi proyek (yang sedang Anda baca)
-└── backend/README.md       # Dokumentasi backend (digabung di sini)
+│       ├── amanah-store-3d-nbg.png   # Ilustrasi 3D logo Amanah Store (tanpa background)
+│       ├── logo.png                  # Logo resmi Amanah Store
+│       ├── logo-crest.png            # Varian logo crest / badge
+│       └── avatar-pakhaji.jpg        # Avatar default pengguna
+│
+├── 📂 backend/                       # Backend PHP polos + PDO (tanpa framework)
+│   ├── auth.php                      # require_login() & require_role() — proteksi halaman
+│   ├── logout.php                    # Proses keluar (POST + CSRF)
+│   ├── seed_owner.php                # Membuat akun owner pertama (CLI, sekali pakai)
+│   ├── tambah_kasir.php              # Tambah akun kasir (khusus role owner)
+│   └── README.md                     # Dokumentasi backend
+│
+├── 📂 css/
+│   ├── global.css                    # Variabel desain, reset, & komponen UI global
+│   ├── style.css                     # Styling halaman login (all-device, ambient glow)
+│   ├── dashboard.css                 # Styling halaman dashboard utama
+│   └── data-barang.css               # Styling halaman manajemen data barang
+│
+├── 📂 script/
+│   ├── script.js                     # Interaktivitas login (toggle password, form state)
+│   ├── global.js                     # Helper & utilitas global (siap API backend)
+│   └── dashboard.js                  # Logika interaktif halaman dashboard
+│
+├── 📂 public/                        # Halaman HTML frontend (view layer)
+│   ├── index.html                    # Redirect / entry point publik
+│   ├── dashboard.html                # Tampilan dashboard kasir & owner
+│   └── data-barang.html              # Tampilan manajemen data barang & stok
+│
+├── 📂 database/
+│   └── database.sql                  # Skema & data awal database MySQL
+│
+├── config.php                        # Koneksi DB, sesi, & token CSRF
+├── dashboard.php                     # Dashboard PHP (proteksi sesi, placeholder)
+├── index.php                         # Entry point PHP (redirect ke login)
+├── login.php                         # Form & proses autentikasi login
+├── login.html                        # Tampilan statis halaman login (HTML)
+├── index.html                        # Entry point HTML (redirect ke login.php)
+├── .env.example                      # Contoh konfigurasi environment variable
+├── .gitignore                        # Daftar file yang dikecualikan dari Git
+└── README.md                         # Dokumentasi proyek (yang sedang Anda baca)
 ```
 
 ---
 
 ## 📱 & 🖥️ Dukungan Responsif Semua Perangkat
 
-- **Smartphone Kecil (≤ 380px)**: iPhone SE, Galaxy Mini — ukuran font & padding fleksibel, bebas dari scroll samping.
-- **Smartphone Modern (390px - 480px)**: iPhone 13/14/15/16/17, Galaxy S — rasio visual 1:1 identik dengan desain acuan.
-- **Tablet & Mesin Kasir POS (600px - 1024px)**: iPad & Layar Sentuh POS kasir — tombol & input empuk dengan target sentuh ideal.
-- **Laptop & Desktop (≥ 1025px)**: Layar 1080p, 2K, 4K — kartu mengapung anggun di tengah (lebar ideal 450px) dengan latar ambient glow.
+| Perangkat | Ukuran Layar | Keterangan |
+|---|---|---|
+| **Smartphone Kecil** | ≤ 380px | iPhone SE, Galaxy Mini — font & padding fleksibel |
+| **Smartphone Modern** | 390px – 480px | iPhone 13/14/15/16/17, Galaxy S — identik desain acuan |
+| **Tablet & Kasir POS** | 600px – 1024px | iPad & layar sentuh POS — target sentuh ideal |
+| **Laptop & Desktop** | ≥ 1025px | 1080p, 2K, 4K — kartu mengapung di tengah (450px) |
 
 ---
 
-## 🔌 Integrasi Backend (Frontend)
+## 🗄️ Halaman Aplikasi
 
-Endpoint backend siap dihubungkan di berkas `script/script.js`:
+| Halaman | File | Deskripsi |
+|---|---|---|
+| Login | `login.php` / `login.html` | Autentikasi kasir & owner, CSRF token |
+| Dashboard | `dashboard.php` / `public/dashboard.html` | Ringkasan penjualan, navigasi utama |
+| Data Barang | `public/data-barang.html` | Manajemen stok, tambah/edit/hapus barang |
+
+---
+
+## 🔌 Integrasi Backend
+
+Backend dibangun menggunakan **PHP 8+ + PDO**, terhubung ke **MySQL**. Endpoint login siap dihubungkan dari `script/script.js`:
+
 - **Endpoint**: `POST /api/auth/login`
 - **Parameter**: `{ username, password, remember }`
-- **Dukungan respons**: CSRF Token & Session User redirect ke Dashboard Kasir.
+- **Respons**: CSRF Token + Session User → redirect ke Dashboard
 
 ---
 
-# Backend Login Amanah Store (PHP)
+## ⚙️ Cara Menjalankan
 
-PHP polos + PDO, tanpa framework. Cukup PHP 8+ dan MySQL.
+1. Pasang **XAMPP** atau **Laragon**, aktifkan Apache dan MySQL.
+2. Salin seluruh folder ini ke `htdocs/` (XAMPP) atau `www/` (Laragon).
+3. Buka `config.php`, sesuaikan `DB_USER` dan `DB_PASS` dengan database lokal Anda.
+4. Import skema database:
+   ```sql
+   -- Di phpMyAdmin atau terminal MySQL:
+   CREATE DATABASE amanah_store;
+   USE amanah_store;
+   SOURCE database/database.sql;
+   ```
+5. Buat akun owner pertama via terminal:
+   ```bash
+   php backend/seed_owner.php
+   # Ikuti instruksi: isi nama, email, dan sandi
+   ```
+6. Buka browser → `http://localhost/<nama-folder>/login.php`
+7. **Hapus** `backend/seed_owner.php` setelah akun owner berhasil dibuat.
 
-## Isi
+---
 
-| File | Fungsi |
-|---|---|
-| `config.php` | Setelan database, sesi, koneksi, token CSRF |
-| `auth.php` | `require_login()` dan `require_role()` untuk melindungi halaman |
-| `login.php` | Form dan proses login |
-| `logout.php` | Keluar (POST + CSRF) |
-| `dashboard.php` | Placeholder, hanya bisa dibuka setelah login |
-| `tambah_kasir.php` | Tambah kasir, khusus owner |
-| `seed_owner.php` | Membuat owner pertama (CLI, sekali pakai) |
+## 🔐 Keamanan
 
-## Cara menjalankan
-1. Pasang XAMPP atau Laragon, aktifkan Apache dan MySQL.
-2. Pastikan database `amanah_store` sudah ada (impor `database.sql` dan `data_barang.sql`).
-3. Salin folder ini ke `htdocs` (XAMPP) atau `www` (Laragon).
-4. Buka `config.php`, sesuaikan `DB_USER` dan `DB_PASS`.
-5. Di terminal, dari folder ini: `php seed_owner.php` lalu isi nama, email, sandi.
-6. Buka `http://localhost/amanah-backend/login.php` dan masuk.
-7. Hapus `seed_owner.php` setelah dipakai.
+- Proteksi halaman dengan `require_login()` dan `require_role()` di `backend/auth.php`
+- Semua form sensitif dilindungi **CSRF Token**
+- Password di-hash menggunakan `password_hash()` (PHP built-in)
+- Logout menggunakan metode `POST` + verifikasi CSRF
+
+---
+
+## 👥 Tim Pengembang
+
+Proyek ini dikembangkan oleh **Tim Bismillah Amiin** dalam rangka mata kuliah PPL (Praktik Pemrograman Lanjut).
+
+> _"Sistem kasir yang amanah, berkah untuk semua."_
